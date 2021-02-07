@@ -11,13 +11,13 @@ int main(int argc, char *argv[])
 
     int sock = socket(AF_INET, SOCK_STREAM, 0); //Define socket 
 
-    int portno = atoi(argv[1]); // Get port number from arg
+    int portno = atoi(argv[1]); // Get port number from arg and atoi method to convert string to integer
 
     //Binding starts 
     struct sockaddr_in server, client_addr;
     server.sin_family = AF_INET;
     server.sin_addr.s_addr = INADDR_ANY;
-    server.sin_port = htons(portno);
+    server.sin_port = htons(portno);    //convert an IP port number in byte order to the IP port number in network byte order.
     bind(sock, (struct sockaddr *)&server, sizeof(server));
 
     printf("Server waiting for client\n");
